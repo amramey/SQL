@@ -1,0 +1,33 @@
+-Create a grocery store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity INTEGER);
+
+INSERT INTO store VALUES (1, "coconut water", "produce", 4.99, 85);
+INSERT INTO store VALUES (2, "bananas", "produce", 1.49, 95);
+INSERT INTO store VALUES (3, "lettuce", "produce", 1.99, 55);
+INSERT INTO store VALUES (4, "cheerios", "bulk", 4.99, 85);
+INSERT INTO store VALUES (5, "oranges", "produce", 3.99, 95);
+INSERT INTO store VALUES (6, "coconut water", "", 4.99, 85);
+INSERT INTO store VALUES (7, "ground beef", "meat", 4.99, 80);
+INSERT INTO store VALUES (8, "chicken wings", "meat", 4.99, 90);
+INSERT INTO store VALUES (9, "beans", "bulk", 0.99, 50);
+INSERT INTO store VALUES (10, "popcorn", "snacks", 1.99, 65);
+INSERT INTO store VALUES (11, "milk", "dairy", 5.99, 95);
+INSERT INTO store VALUES (12, "peas", "frozen", 1.99, 30);
+INSERT INTO store VALUES (13, "melon", "produce", 2.99, 75);
+INSERT INTO store VALUES (14, "ice cream", "frozen", 3.99, 95);
+INSERT INTO store VALUES (15, "toothpaste", "health", 4.99, 65);
+
+--Display the database order by price?
+SELECT * FROM store 
+ORDER BY price desc;
+
+--What are the 5 most popular items?
+SELECT item, price, popularity
+FROM store
+ORDER BY popularity desc limit 5;
+
+--What is the average price of items in the meat section?
+SELECT AVG(price) "avg meat item price"
+FROM store
+WHERE section="meat";
